@@ -94,6 +94,19 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
+          let lastHeight = window.innerHeight;
+
+          window.addEventListener("resize", () => {
+            console.log("on resize");
+            let newHeight = window.innerHeight;
+            let keyboardHeight = lastHeight - newHeight;
+
+            if (keyboardHeight > 150) { // 150px 以上ならキーボードが出たとみなす
+              unityInstance.SendMessage("KeyboardWatcher", "OnKeyboardChanged", keyboardHeight);
+            } else {
+              unityInstance.SendMessage("KeyboardWatcher", "OnKeyboardChanged", 0);
+            }
+          });
         }).catch((message) => {
           alert(message);
         });
