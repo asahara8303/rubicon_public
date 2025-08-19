@@ -1,9 +1,9 @@
 const cacheName = "DefaultCompany-rubicon-1.0";
 const contentToCache = [
     "Build/Test.loader.js",
-    "Build/Test.framework.js.br",
-    "Build/Test.data.br",
-    "Build/Test.wasm.br",
+    "Build/Test.framework.js",
+    "Build/Test.data",
+    "Build/Test.wasm",
     "TemplateData/style.css"
 
 ];
