@@ -94,11 +94,11 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
-          let lastHeight = window.innerHeight;
+          let lastHeight = window.visualViewport.height;
 
           window.addEventListener("resize", () => {
             console.log("on resize");
-            let newHeight = window.innerHeight;
+            let newHeight = window.visualViewport.height;
             let keyboardHeight = lastHeight - newHeight;
 
             if (keyboardHeight > 150) { // 150px 以上ならキーボードが出たとみなす
