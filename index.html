@@ -6,6 +6,7 @@
     <title>Unity Web Player | rubicon</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="custom_style.css">
     <link rel="manifest" href="manifest.webmanifest">
   </head>
   <body>
@@ -57,12 +58,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Test.loader.js";
+      var loaderUrl = buildUrl + "/build.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/Test.data",
-        frameworkUrl: buildUrl + "/Test.framework.js",
-        codeUrl: buildUrl + "/Test.wasm",
+        dataUrl: buildUrl + "/build.data",
+        frameworkUrl: buildUrl + "/build.framework.js",
+        codeUrl: buildUrl + "/build.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "rubicon",

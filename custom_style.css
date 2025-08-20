@@ -1,0 +1,121 @@
+#unity-overlay { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    color: rgba(228,228,228,1);
+    font-size: 1rem;
+    background-color: rgba(20, 20, 20, 0.5);
+}
+
+@media screen  {
+    .overlay-contents {
+        width: 980px;
+        height: 100%;
+        background-color: rgba(20, 20, 20, 1);
+        flex-direction: column;
+        display: flex;
+    }
+}
+@media screen and (max-width: 980px) {
+    .overlay-contents {
+        width: 100%;
+    }
+}
+
+.chat
+{
+    width: 100%;
+}
+
+.chat-header
+{
+    height: 200px;
+    background-color: rgba(20, 20, 20, 1);
+}
+
+.chat-main
+{
+    flex: 1;
+    background-color: rgba(20, 20, 20, 1);
+    overflow-y: auto;
+}
+
+.chat-log-contents
+{
+    background-color: rgba(20, 20, 20, 1);
+}
+
+.chat-cell
+{
+    flex-direction: row;
+    display: flex;
+    padding: 10px;
+}
+
+.chat-cell {
+    .icon {
+        width: 60px;
+        height: 60px;
+        padding: 5px;
+        
+        .thumbnail
+        {
+            width: 60px;
+            border-radius: 10px;
+            
+        }
+    }
+
+    .content {
+        flex: 1;
+        padding-left: 5px;
+        flex-direction: column;
+        display: flex;
+        .name {
+            padding: 5px;
+        }
+        .system-name {
+            padding: 5px;
+            color: rgba(228,228,228,0.5);
+            ::before {
+                content: '';
+                background-image: url("Help.png");
+                display: inline-block;
+                background-size: cover;
+                background-repeat: no-repeat;
+                width: 1em;
+                height: 1em;
+                position: relative;
+                left: -0.1em;
+                top: 0.1em;
+            }
+        }
+        .system-text-area {
+            border: solid 3px rgba(228,228,228,0.5);
+            border-radius: 10px;
+            .text
+            {
+                color: rgba(228,228,228,0.5);
+                padding: 5px;
+            }
+        }
+        .text-area {
+            background-color: rgba(48,48,48,1);
+            border-radius: 10px;
+            padding: 0px 5px 5px 5px;
+            .text
+            {
+                color: rgba(228,228,228,1);
+                padding: 5px;
+            }
+        }
+    }
+}
