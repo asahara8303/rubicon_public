@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>Unity WebGL Overlay Sample</title>
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="stylesheet" href="custom_style.css">
+</head>
+<body>
+<!-- Unity Canvas を配置 -->
+<div id="unity-overlay">
+    <div class="overlay-contents">
+        <div class="chat-header">
+            hoge
+            <button id="unity-overlay-close">閉じる</button>
+            <form action="" method="get" id="res-form">
+                <div class="chat-cell">
+                    <div class="icon">
+                        <img class="thumbnail" src="https://www.rabbithutch.site/usagoya/picture.php?user=99ae82caf6950bafe20070025208a7cd&amp;an=true&amp;file=nkzm_01.webp" alt="">
+                    </div>
+                    <div class="content">
+                        <label for="res-name"></label>
+                        <input type="text" name="name" id="res-name" class="res-name" required value="此処にお名前"/>
+                        <label for="res-content"></label>
+                        <textarea id="res-content" class="res-text-area" name="content">ほげほげほげほげ</textarea>
+                    </div>
+                </div>
+            <div style="text-align: right; padding-right: 1em"><button id="res-form-button" type="button">送信</button></div>
+            </form>
+        </div>
+        <div class="chat-main">
+            <div class="chat chat-log-contents">
+                <div class="chat-cell">
+                    <div class="icon">
+                        <img class="thumbnail" src="https://www.rabbithutch.site/usagoya/picture.php?user=99ae82caf6950bafe20070025208a7cd&amp;an=true&amp;file=nkzm_01.webp" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="name"><strong>hoge</strong></div>
+                        <div class="text-area">
+                            <div class="text">あのイーハトーヴォの透き通った風</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-cell">
+                    <div class="icon">
+                        <img class="thumbnail" src="https://www.rabbithutch.site/usagoya/picture.php?user=99ae82caf6950bafe20070025208a7cd&amp;an=true&amp;file=nkzm_01.webp" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="name"><strong>hoge</strong></div>
+                        <div class="text-area">
+                            <div class="text">あのイーハトーヴォの透き通った風</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-cell">
+                    <div class="content">
+                        <div class="system-name"><strong>SYSTEM MESSAGE</strong></div>
+                        <div class="system-text-area">
+                            <div class="text">あのイーハトーヴォの透き通った風</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-cell">
+                    <div class="icon">
+                        <img class="thumbnail" src="https://www.rabbithutch.site/usagoya/picture.php?user=99ae82caf6950bafe20070025208a7cd&amp;an=true&amp;file=nkzm_01.webp" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="name"><strong>hoge</strong></div>
+                        <div class="text-area">
+                            <div class="text">あのイーハトーヴォの透き通った風</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-cell">
+                    <div class="content">
+                        <div class="system-name"><strong>SYSTEM MESSAGE</strong></div>
+                        <div class="system-text-area">
+                            <div class="text">あのイーハトーヴォの透き通った風</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-cell">
+                    <div class="content">
+                        <div class="system-name"><strong>SYSTEM MESSAGE</strong></div>
+                        <div class="system-text-area">
+                            <div class="text">あのイーハトーヴォの透き通った風</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-cell">
+                    <div class="content">
+                        <div class="system-name"><strong>SYSTEM MESSAGE</strong></div>
+                        <div class="system-text-area">
+                            <div class="text">あのイーハトーヴォの透き通った風</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div>
+        
+       
+    </div>
+</div>
+<script>
+    const form = document.getElementById("res-form");
+    const submitButton = document.getElementById("res-form-button");
+    const logRoot = document.getElementsByClassName("chat-log-contents")[0];
+    submitButton.onclick = () => {
+        const formData = new FormData(form);
+        
+        //const action = form.getAttribute("action");
+        console.log(...formData.entries());
+        logRoot.insertAdjacentHTML("afterbegin",`                <div class="chat-cell">
+                    <div class="icon">
+                        <img class="thumbnail" src="https://www.rabbithutch.site/usagoya/picture.php?user=99ae82caf6950bafe20070025208a7cd&amp;an=true&amp;file=nkzm_01.webp" alt="">
+                    </div>
+                    <div class="content">
+                        <div class="name"><strong>${formData.get("name")}</strong></div>
+                        <div class="text-area">
+                            <div class="text">${formData.get("content")}</div>
+                        </div>
+                    </div>
+                </div>
+        `);
+        //alert(formData.getAll());
+        /*const options = {
+            method: 'POST',
+            body: formData,
+        }
+        fetch(action, options).then((e) => {
+            if(e.status === 200) {
+                alert("保存しました。")
+                return
+            }
+            alert("保存できませんでした。")
+        })*/
+    }
+</script>
+</body>
+</html>
